@@ -2,7 +2,8 @@
   Exportar "Padrão" -> Uma coisa só por pagina
   apenas exportar
 */
-import { use, useRef } from 'react'
+import { useRef } from 'react'
+import api from '../../services/api'
 
 import{ Container, Title, TopBackground, Form, ContainerInputs, Input, Button, InputLabel } from './styles'
 
@@ -14,8 +15,14 @@ function Home() {
   const inputAge = useRef()
   const inputEmail = useRef()
 
-  function registerNewUser() {
-    console.log(inputName.current.value);
+  async function registerNewUser() {
+    const data = await api.post("/usuarios", {
+      email: inputEmail.current.value,
+      nome: inputName.current.value,
+      idade: inputAge.current.value
+    })
+
+    console.log(data);
     
   }
 
