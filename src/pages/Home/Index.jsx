@@ -4,8 +4,9 @@
 */
 import { useRef } from 'react'
 import api from '../../services/api'
+import Button from '../../components/Button'
 
-import{ Container, Title, TopBackground, Form, ContainerInputs, Input, Button, InputLabel } from './styles'
+import{ Container, Title, TopBackground, Form, ContainerInputs, Input, InputLabel } from './styles'
 
 import UsersImage from "../../assets/users.png"
 
