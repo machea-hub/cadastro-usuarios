@@ -1,9 +1,9 @@
 import { Button } from './styles'
 
-function DefaultButton() {
+function DefaultButton({ children, ...rest }) {
 
     return (
-        <Button></Button>
+        <Button {...rest}>{children}</Button>
     )
     
 }
