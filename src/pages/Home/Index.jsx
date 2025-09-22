@@ -3,6 +3,7 @@
   apenas exportar
 */
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import Button from "../../components/Button";
 import TopBackground from "../../components/TopBackground";
@@ -21,6 +22,8 @@ function Home() {
   const inputName = useRef();
   const inputAge = useRef();
   const inputEmail = useRef();
+
+  const navigate = useNavigate()
 
   async function registerNewUser() {
     const data = await api.post("/usuarios", {
@@ -71,7 +74,7 @@ function Home() {
         </Button>
       </Form>
 
-      <Button type="button">
+      <Button type="button" onClick={() => navigate("/usuarios")}>
         Ver Lista de Usuários
       </Button>
     </Container>
