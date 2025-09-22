@@ -1,20 +1,29 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-    border: none;
-    background: linear-gradient(180deg, #fe7e5d 0%, #7f3841 100%);
-    font-size: 16px;
-    color: #fff;
-    padding: 16px 32px;
-    width: fit-content;
-    cursor: pointer;
-    border-radius: 30px;
+  border: ${(props) =>
+    props.theme === "primary" 
+    ? "none" 
+    : "1px solid #fe7e5d"};
+  background: ${(props) =>
+    props.theme === "primary"
+      ? "linear-gradient(180deg, #fe7e5d 0%, #7f3841 100%)"
+      : "transparent"};
+  font-size: 16px;
+  color: #fff;
+  padding: 16px 32px;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 30px;
 
-    &:hover {
-        opacity: 0.8;   
-    }
+  &:hover {
+    ${(props) => 
+    props.theme === "primary"
+      ? "opacity: 0.8;"
+      : "background: #fe7e5d; color: #fff;"};
+  }
 
-    &:active {
-        opacity: 0.5;
-    }
-`
+  &:active {
+    opacity: 0.5;
+  }
+`;
