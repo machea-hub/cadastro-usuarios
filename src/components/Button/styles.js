@@ -20,7 +20,7 @@ export const Button = styled.button`
     ${(props) => 
     props.theme === "primary"
       ? "opacity: 0.8;"
-      : "background: #fe7e5d; color: #fff;"};
+      : "background: #fe7e5d; color: #fff; box-shadow: 0 0 15px #fe7e5d; "};
   }
 
   &:active {
