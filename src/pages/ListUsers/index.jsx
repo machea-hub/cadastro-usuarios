@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import api from "../../services/api"
+import { useNavigate } from "react-router-dom";
 import Button from '../../components/Button'
 import TopBackground from '../../components/TopBackground'
 import { Container, ContainerUsers, CardUsers, TrashIcon, Title, AvatarUser} from "./styles"
@@ -7,6 +8,8 @@ import { Container, ContainerUsers, CardUsers, TrashIcon, Title, AvatarUser} fro
 import trash from "../../assets/trash.svg"
 
 function ListUsers() {
+
+    const navigate = useNavigate()
 
     const [users, setusers] = useState([])
 
@@ -44,7 +47,7 @@ function ListUsers() {
             ))}
             </ContainerUsers>
 
-            <Button type="button">Voltar</Button>
+            <Button type="button" onClick={() => navigate("/")}>Voltar</Button>
         </Container>
     )
 }
