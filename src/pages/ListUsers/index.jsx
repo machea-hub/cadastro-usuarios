@@ -11,19 +11,26 @@ function ListUsers() {
 
     const navigate = useNavigate()
 
-    const [users, setusers] = useState([])
+    const [users, setUsers] = useState([])
 
     useEffect(() => {
         async function getUsers() {
             const { data } = await api.get("/usuarios")
             console.log(data);
 
-            setusers(data)
+            setUsers(data)
             
         }
         getUsers()
     }, [])
     
+    async function deleteUsers(id) {
+        await api.delete(`/usuarios/${id}`)
+
+        const updateUsers = users.filter ( user => user.id !== id)
+
+        setUsers(updateUsers)
+    }
 
     return (
         <Container>
@@ -42,7 +49,7 @@ function ListUsers() {
                     <p>{user.age} anos</p>
                     <p>{user.email}</p>
                 </div>
-                <TrashIcon src={trash}/>
+                <TrashIcon src={trash} alt="trash-icon" onClick={() => deleteUsers(user.id)}/>
                 </CardUsers>
             ))}
             </ContainerUsers>
